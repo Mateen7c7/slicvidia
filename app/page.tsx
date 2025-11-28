@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { motion, useScroll, useTransform, Variants } from "framer-motion";
 import {
   Code,
@@ -9,13 +8,12 @@ import {
   Video,
   CheckCircle,
   ArrowRight,
-  Menu,
-  X,
   Globe,
   Cpu,
   Zap,
   MessageSquare,
 } from "lucide-react";
+import Link from "next/link";
 
 // Animation Variants
 const fadeIn: Variants = {
@@ -63,101 +61,16 @@ const blobAnimation: Variants = {
 };
 
 export default function Home() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { scrollYProgress } = useScroll();
   const scaleX = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   return (
-    <div className="min-h-screen bg-black text-white selection:bg-blue-500 selection:text-white font-sans overflow-x-hidden">
+    <div className="min-h-screen">
       {/* Scroll Progress Bar */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500 origin-left z-[60]"
         style={{ scaleX }}
       />
-
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-2xl font-bold tracking-tighter bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
-          >
-            Slicvidia
-          </motion.div>
-
-          {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-400">
-            {["Services", "Portfolio", "Why Us"].map((item, i) => (
-              <motion.a
-                key={item}
-                href={`#${item.toLowerCase().replace(" ", "")}`}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 * i, duration: 0.5 }}
-                className="hover:text-white transition-colors relative group"
-              >
-                {item}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all group-hover:w-full" />
-              </motion.a>
-            ))}
-            <motion.button
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-white text-black px-5 py-2 rounded-full font-semibold hover:bg-zinc-200 transition-colors"
-            >
-              Get a Quote
-            </motion.button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-white"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X /> : <Menu />}
-          </button>
-        </div>
-
-        {/* Mobile Nav */}
-        {isMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            className="md:hidden bg-black border-b border-white/10"
-          >
-            <div className="flex flex-col p-6 gap-4 text-zinc-400">
-              <a
-                href="#services"
-                className="hover:text-white"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Services
-              </a>
-              <a
-                href="#portfolio"
-                className="hover:text-white"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Portfolio
-              </a>
-              <a
-                href="#about"
-                className="hover:text-white"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Why Us
-              </a>
-              <button className="bg-white text-black px-5 py-2 rounded-full font-semibold w-full">
-                Get a Quote
-              </button>
-            </div>
-          </motion.div>
-        )}
-      </nav>
 
       {/* 1️⃣ Hero Section */}
       <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 px-6 overflow-hidden min-h-[90vh] flex items-center justify-center">
@@ -312,51 +225,58 @@ export default function Home() {
                 title: "Website Development",
                 icon: <Globe />,
                 desc: "High-performance websites tailored to your brand.",
+                href: "/services/website-development",
               },
               {
                 title: "Website Management",
                 icon: <CheckCircle />,
                 desc: "Updates, security, and maintenance handled for you.",
+                href: "/services/web-management-maintenance",
               },
               {
                 title: "Full-Stack Software",
                 icon: <Code />,
                 desc: "Custom web applications and internal tools.",
+                href: "/services/software-development",
               },
               {
                 title: "Digital Marketing & SEO",
                 icon: <BarChart />,
                 desc: "Drive traffic and convert visitors into customers.",
+                href: "/services/digital-marketing",
               },
               {
                 title: "Content Creation",
                 icon: <PenTool />,
                 desc: "Engaging copy and visuals that tell your story.",
+                href: "/services/content-video-editing",
               },
               {
                 title: "Video Editing",
                 icon: <Video />,
                 desc: "Professional editing for social media and ads.",
+                href: "/services/content-video-editing",
               },
             ].map((service, index) => (
-              <motion.div
-                key={index}
-                variants={fadeIn}
-                whileHover={{ scale: 1.02, backgroundColor: "rgb(24 24 27)" }}
-                className="group p-8 rounded-3xl bg-zinc-900 border border-white/10 cursor-pointer transition-all duration-300"
-              >
-                <div className="mb-6 p-4 bg-blue-500/10 text-blue-400 rounded-2xl w-fit group-hover:bg-blue-500 group-hover:text-white transition-colors duration-300">
-                  {service.icon}
-                </div>
-                <h3 className="text-2xl font-bold mb-3">{service.title}</h3>
-                <p className="text-zinc-400 mb-6">{service.desc}</p>
-                <div className="flex items-center text-sm font-semibold text-blue-400 group-hover:text-blue-300">
-                  Learn More{" "}
-                  <motion.span whileHover={{ x: 5 }}>
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </motion.span>
-                </div>
-              </motion.div>
+              <Link key={index} href={service.href} passHref>
+                <motion.div
+                  variants={fadeIn}
+                  whileHover={{ scale: 1.02, backgroundColor: "rgb(24 24 27)" }}
+                  className="group p-8 rounded-3xl bg-zinc-900 border border-white/10 cursor-pointer transition-all duration-300 h-full"
+                >
+                  <div className="mb-6 p-4 bg-blue-500/10 text-blue-400 rounded-2xl w-fit group-hover:bg-blue-500 group-hover:text-white transition-colors duration-300">
+                    {service.icon}
+                  </div>
+                  <h3 className="text-2xl font-bold mb-3">{service.title}</h3>
+                  <p className="text-zinc-400 mb-6">{service.desc}</p>
+                  <div className="flex items-center text-sm font-semibold text-blue-400 group-hover:text-blue-300">
+                    Learn More{" "}
+                    <motion.span whileHover={{ x: 5 }}>
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </motion.span>
+                  </div>
+                </motion.div>
+              </Link>
             ))}
           </motion.div>
         </div>
@@ -506,113 +426,6 @@ export default function Home() {
           </div>
         </motion.div>
       </section>
-
-      {/* 7️⃣ Footer */}
-      <footer className="bg-zinc-950 border-t border-white/10 pt-20 pb-10 px-6">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-          <div className="space-y-4">
-            <div className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-              Slicvidia
-            </div>
-            <p className="text-zinc-400">
-              Building the future of digital experiences.
-            </p>
-          </div>
-
-          <div>
-            <h4 className="font-bold mb-6">Services</h4>
-            <ul className="space-y-3 text-zinc-400">
-              <li>
-                <a href="#" className="hover:text-white">
-                  Web Development
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white">
-                  Digital Marketing
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white">
-                  SEO Optimization
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white">
-                  Content Creation
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-bold mb-6">Company</h4>
-            <ul className="space-y-3 text-zinc-400">
-              <li>
-                <a href="#" className="hover:text-white">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white">
-                  Portfolio
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white">
-                  Careers
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-white">
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-bold mb-6">Connect</h4>
-            <ul className="space-y-3 text-zinc-400">
-              <li>hello@slicvidia.com</li>
-              <li>+1 (555) 123-4567</li>
-              <li className="flex gap-4 mt-4">
-                {/* Social Icons */}
-                <a
-                  href="#"
-                  className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-blue-500 hover:text-white transition-colors"
-                >
-                  𝕏
-                </a>
-                <a
-                  href="#"
-                  className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-blue-500 hover:text-white transition-colors"
-                >
-                  In
-                </a>
-                <a
-                  href="#"
-                  className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-blue-500 hover:text-white transition-colors"
-                >
-                  Ig
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="max-w-7xl mx-auto pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-zinc-500 text-sm">
-          <div>© 2024 Slicvidia. All rights reserved.</div>
-          <div className="flex gap-6">
-            <a href="#" className="hover:text-white">
-              Privacy Policy
-            </a>
-            <a href="#" className="hover:text-white">
-              Terms of Service
-            </a>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
