@@ -1,4 +1,3 @@
-
 🎨 Primary Brand Palette
 Role
 Color Name
@@ -21,8 +20,6 @@ Navy Black
 #0D1117
 rgb(13, 17, 23)
 
-
-
 🖱️ UI Supporting Colors
 Purpose
 Hex
@@ -39,7 +36,6 @@ Slightly lighter than base
 Border / Divider
 #2A3240
 Low contrast subtle lines
-
 
 📌 Button Styling
 Button Type
@@ -77,9 +73,34 @@ Labels / Captions
 Links
 #3B82F6
 
-
 Tech Stack
 Next.js
 Tailwind CSS
 TypeScript
 Motion
+
+## Portfolio Page Structure
+
+For each project:
+
+### [Client Name / Project Name]
+
+**Problem**
+
+- [Description of the problem]
+
+**Solution**
+
+- [Description of the solution]
+
+**Tools used**
+
+- [List of tools]
+
+**Result (metrics if possible)**
+
+- [Outcomes/Metrics]
+
+**Images or demo links**
+
+- [Links or Image placeholders]

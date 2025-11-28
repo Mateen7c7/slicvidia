@@ -14,6 +14,7 @@ import {
   MessageSquare,
 } from "lucide-react";
 import Link from "next/link";
+import { projects } from "./lib/projects-data";
 
 // Animation Variants
 const fadeIn: Variants = {
@@ -310,9 +311,9 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[1, 2].map((item, i) => (
+            {projects.map((project, i) => (
               <motion.div
-                key={item}
+                key={project.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -322,20 +323,21 @@ export default function Home() {
                 {/* Placeholder for Project Image */}
                 <div className="absolute inset-0 bg-gradient-to-br from-zinc-800 to-zinc-900 flex items-center justify-center group-hover:scale-110 transition-transform duration-700 ease-in-out">
                   <span className="text-zinc-600 font-medium text-xl">
-                    Project Demo {item}
+                    {project.projectName}
                   </span>
                 </div>
                 <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-6 text-center backdrop-blur-sm">
                   <motion.div
                     initial={{ y: 20, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }} // This might trigger prematurely if not careful, but group hover handles visibility
+                    whileInView={{ y: 0, opacity: 1 }}
                     className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
                   >
                     <h3 className="text-2xl font-bold mb-2">
-                      E-Commerce Platform
+                      {project.projectName}
                     </h3>
-                    <p className="text-zinc-300 mb-6">
-                      Full-stack development & UI Design
+                    <p className="text-zinc-300 mb-2">{project.client}</p>
+                    <p className="text-zinc-400 text-sm mb-6">
+                      {project.tools.join(" • ")}
                     </p>
                     <button className="px-6 py-2 bg-white text-black rounded-full font-semibold hover:bg-zinc-200">
                       View Case Study
