@@ -104,3 +104,20 @@ For each project:
 **Images or demo links**
 
 - [Links or Image placeholders]
+
+## About Page Copy
+
+**Headline:** Who We Are
+
+**Paragraph:**
+Slicvidia was created with one goal: to help businesses grow in the digital world. We combine development, design, marketing, and content strategy to deliver seamless digital solutions under one roof.
+
+**Mission Statement:**
+To empower businesses with scalable digital solutions that accelerate growth and build long-term success.
+
+**Values:**
+- Innovation
+- Integrity
+- Quality
+- Growth
+- Collaboration

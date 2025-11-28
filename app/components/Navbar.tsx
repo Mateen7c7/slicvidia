@@ -27,7 +27,7 @@ export default function Navbar() {
           {[
             { name: "Services", href: "/#services" },
             { name: "Portfolio", href: "/#portfolio" },
-            { name: "Why Us", href: "/#about" },
+            { name: "About", href: "/about" },
           ].map((item, i) => (
             <motion.a
               key={item.name}
@@ -86,11 +86,11 @@ export default function Navbar() {
               Portfolio
             </Link>
             <Link
-              href="/#about"
+              href="/about"
               className="hover:text-white"
               onClick={() => setIsMenuOpen(false)}
             >
-              Why Us
+              About
             </Link>
             <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
               <button className="bg-white text-black px-5 py-2 rounded-full font-semibold w-full">
