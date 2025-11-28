@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform, Variants } from "framer-motion";
 import {
   Code,
   BarChart,
@@ -17,46 +17,100 @@ import {
   MessageSquare,
 } from "lucide-react";
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5 },
+// Animation Variants
+const fadeIn: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
 };
 
-const staggerContainer = {
-  animate: {
+const staggerContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
     transition: {
       staggerChildren: 0.1,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const heroTextVariant: Variants = {
+  hidden: { opacity: 0, y: 50, filter: "blur(10px)" },
+  visible: {
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    transition: { duration: 1, ease: [0.22, 1, 0.36, 1] },
+  },
+};
+
+const blobAnimation: Variants = {
+  animate: {
+    scale: [1, 1.1, 1],
+    rotate: [0, 10, -10, 0],
+    x: [0, 50, -50, 0],
+    y: [0, -30, 30, 0],
+    transition: {
+      duration: 20,
+      repeat: Infinity,
+      ease: "linear",
     },
   },
 };
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { scrollYProgress } = useScroll();
+  const scaleX = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   return (
     <div className="min-h-screen bg-black text-white selection:bg-blue-500 selection:text-white font-sans overflow-x-hidden">
+      {/* Scroll Progress Bar */}
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500 origin-left z-[60]"
+        style={{ scaleX }}
+      />
+
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <div className="text-2xl font-bold tracking-tighter bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-2xl font-bold tracking-tighter bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent"
+          >
             Slicvidia
-          </div>
+          </motion.div>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-400">
-            <a href="#services" className="hover:text-white transition-colors">
-              Services
-            </a>
-            <a href="#portfolio" className="hover:text-white transition-colors">
-              Portfolio
-            </a>
-            <a href="#about" className="hover:text-white transition-colors">
-              Why Us
-            </a>
-            <button className="bg-white text-black px-5 py-2 rounded-full font-semibold hover:bg-zinc-200 transition-colors">
+            {["Services", "Portfolio", "Why Us"].map((item, i) => (
+              <motion.a
+                key={item}
+                href={`#${item.toLowerCase().replace(" ", "")}`}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 * i, duration: 0.5 }}
+                className="hover:text-white transition-colors relative group"
+              >
+                {item}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all group-hover:w-full" />
+              </motion.a>
+            ))}
+            <motion.button
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-white text-black px-5 py-2 rounded-full font-semibold hover:bg-zinc-200 transition-colors"
+            >
               Get a Quote
-            </button>
+            </motion.button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -106,41 +160,73 @@ export default function Home() {
       </nav>
 
       {/* 1️⃣ Hero Section */}
-      <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 px-6 overflow-hidden">
+      <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 px-6 overflow-hidden min-h-[90vh] flex items-center justify-center">
         {/* Animated Background Gradient */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-blue-500/20 rounded-full blur-[120px] -z-10 animate-pulse" />
-        <div className="absolute bottom-0 right-0 w-[800px] h-[600px] bg-purple-500/10 rounded-full blur-[100px] -z-10" />
+        <motion.div
+          variants={blobAnimation}
+          animate="animate"
+          className="absolute top-0 left-1/4 w-[800px] h-[800px] bg-blue-600/20 rounded-full blur-[120px] -z-10"
+        />
+        <motion.div
+          variants={blobAnimation}
+          animate="animate"
+          transition={{ delay: 2 }} // Offset the second blob
+          className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-purple-600/20 rounded-full blur-[100px] -z-10"
+        />
 
-        <div className="max-w-7xl mx-auto text-center">
+        <div className="max-w-7xl mx-auto text-center z-10">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="space-y-6"
+            initial="hidden"
+            animate="visible"
+            variants={staggerContainer}
+            className="space-y-8"
           >
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight leading-tight">
+            <motion.h1
+              variants={heroTextVariant}
+              className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-tight"
+            >
               Smart Digital Solutions to <br className="hidden md:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 animate-gradient-x">
                 Build, Manage & Grow
               </span>{" "}
               <br className="hidden md:block" />
               Your Online Presence.
-            </h1>
+            </motion.h1>
 
-            <p className="text-xl md:text-2xl text-zinc-400 max-w-3xl mx-auto">
+            <motion.p
+              variants={fadeIn}
+              className="text-xl md:text-2xl text-zinc-400 max-w-3xl mx-auto"
+            >
               Web Development | Full-Stack Software | Digital Marketing |
               Content Creation
-            </p>
+            </motion.p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
-              <button className="w-full sm:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-semibold text-lg transition-all transform hover:scale-105 shadow-lg shadow-blue-500/25">
+            <motion.div
+              variants={fadeIn}
+              className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8"
+            >
+              <motion.button
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0 0 20px rgba(59, 130, 246, 0.5)",
+                }}
+                whileTap={{ scale: 0.95 }}
+                className="w-full sm:w-auto px-8 py-4 bg-blue-600 text-white rounded-full font-semibold text-lg transition-all"
+              >
                 Get a Free Quote
-              </button>
-              <button className="w-full sm:w-auto px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white rounded-full font-semibold text-lg transition-all backdrop-blur-sm flex items-center justify-center gap-2 group">
+              </motion.button>
+              <motion.button
+                whileHover={{
+                  scale: 1.05,
+                  backgroundColor: "rgba(255,255,255,0.1)",
+                }}
+                whileTap={{ scale: 0.95 }}
+                className="w-full sm:w-auto px-8 py-4 bg-white/5 border border-white/10 text-white rounded-full font-semibold text-lg transition-all backdrop-blur-sm flex items-center justify-center gap-2 group"
+              >
                 Schedule a Call
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
-            </div>
+              </motion.button>
+            </motion.div>
           </motion.div>
         </div>
       </section>
@@ -152,9 +238,9 @@ export default function Home() {
       >
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
           >
@@ -182,8 +268,9 @@ export default function Home() {
             ].map((item, index) => (
               <motion.div
                 key={index}
-                variants={fadeInUp}
-                className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-blue-500/50 transition-colors"
+                variants={fadeIn}
+                whileHover={{ y: -5, borderColor: "rgba(59, 130, 246, 0.5)" }}
+                className="p-6 rounded-2xl bg-white/5 border border-white/10 transition-colors duration-300"
               >
                 <div className="mb-4 p-3 bg-white/5 rounded-xl w-fit">
                   {item.icon}
@@ -199,16 +286,27 @@ export default function Home() {
       {/* 3️⃣ Services Preview Section */}
       <section id="services" className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
             <h2 className="text-3xl md:text-5xl font-bold mb-4">
               Our Expertise
             </h2>
             <p className="text-zinc-400 text-lg">
               Comprehensive services to elevate your brand.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
             {[
               {
                 title: "Website Development",
@@ -243,23 +341,24 @@ export default function Home() {
             ].map((service, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="group p-8 rounded-3xl bg-zinc-900 border border-white/10 hover:bg-zinc-800 transition-all hover:-translate-y-1 cursor-pointer"
+                variants={fadeIn}
+                whileHover={{ scale: 1.02, backgroundColor: "rgb(24 24 27)" }}
+                className="group p-8 rounded-3xl bg-zinc-900 border border-white/10 cursor-pointer transition-all duration-300"
               >
-                <div className="mb-6 p-4 bg-blue-500/10 text-blue-400 rounded-2xl w-fit group-hover:bg-blue-500 group-hover:text-white transition-colors">
+                <div className="mb-6 p-4 bg-blue-500/10 text-blue-400 rounded-2xl w-fit group-hover:bg-blue-500 group-hover:text-white transition-colors duration-300">
                   {service.icon}
                 </div>
                 <h3 className="text-2xl font-bold mb-3">{service.title}</h3>
                 <p className="text-zinc-400 mb-6">{service.desc}</p>
                 <div className="flex items-center text-sm font-semibold text-blue-400 group-hover:text-blue-300">
-                  Learn More <ArrowRight className="w-4 h-4 ml-2" />
+                  Learn More{" "}
+                  <motion.span whileHover={{ x: 5 }}>
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </motion.span>
                 </div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -270,43 +369,60 @@ export default function Home() {
       >
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-            <div>
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
               <h2 className="text-3xl md:text-5xl font-bold mb-4">
                 Selected Work
               </h2>
               <p className="text-zinc-400 text-lg">
                 See how we help businesses thrive.
               </p>
-            </div>
-            <button className="text-white border-b border-white pb-1 hover:text-blue-400 hover:border-blue-400 transition-colors">
+            </motion.div>
+            <motion.button
+              whileHover={{ x: 5 }}
+              className="text-white border-b border-white pb-1 hover:text-blue-400 hover:border-blue-400 transition-colors"
+            >
               View All Projects
-            </button>
+            </motion.button>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[1, 2].map((item) => (
-              <div
+            {[1, 2].map((item, i) => (
+              <motion.div
                 key={item}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.2 }}
                 className="group relative aspect-video rounded-3xl overflow-hidden bg-zinc-800 border border-white/10"
               >
                 {/* Placeholder for Project Image */}
-                <div className="absolute inset-0 bg-gradient-to-br from-zinc-800 to-zinc-900 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
-                  <span className="text-zinc-600 font-medium">
+                <div className="absolute inset-0 bg-gradient-to-br from-zinc-800 to-zinc-900 flex items-center justify-center group-hover:scale-110 transition-transform duration-700 ease-in-out">
+                  <span className="text-zinc-600 font-medium text-xl">
                     Project Demo {item}
                   </span>
                 </div>
-                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center p-6 text-center">
-                  <h3 className="text-2xl font-bold mb-2">
-                    E-Commerce Platform
-                  </h3>
-                  <p className="text-zinc-300 mb-6">
-                    Full-stack development & UI Design
-                  </p>
-                  <button className="px-6 py-2 bg-white text-black rounded-full font-semibold hover:bg-zinc-200">
-                    View Case Study
-                  </button>
+                <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-6 text-center backdrop-blur-sm">
+                  <motion.div
+                    initial={{ y: 20, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }} // This might trigger prematurely if not careful, but group hover handles visibility
+                    className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
+                  >
+                    <h3 className="text-2xl font-bold mb-2">
+                      E-Commerce Platform
+                    </h3>
+                    <p className="text-zinc-300 mb-6">
+                      Full-stack development & UI Design
+                    </p>
+                    <button className="px-6 py-2 bg-white text-black rounded-full font-semibold hover:bg-zinc-200">
+                      View Case Study
+                    </button>
+                  </motion.div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -315,9 +431,14 @@ export default function Home() {
       {/* 5️⃣ Reviews / Social Proof */}
       <section className="py-24 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-16">
+          <motion.h2
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-4xl font-bold mb-16"
+          >
             Trusted by Innovative Brands
-          </h2>
+          </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
               {
@@ -333,8 +454,13 @@ export default function Home() {
                 role: "Founder, GrowthLabs",
               },
             ].map((review, index) => (
-              <div
+              <motion.div
                 key={index}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.2 }}
+                whileHover={{ y: -5 }}
                 className="p-8 rounded-3xl bg-zinc-900/50 border border-white/10 relative"
               >
                 <div className="text-4xl text-blue-500 absolute top-6 left-6">
@@ -347,7 +473,7 @@ export default function Home() {
                   <div className="font-bold">{review.author}</div>
                   <div className="text-sm text-zinc-500">{review.role}</div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -355,7 +481,12 @@ export default function Home() {
 
       {/* 6️⃣ CTA Section */}
       <section className="py-32 px-6">
-        <div className="max-w-5xl mx-auto relative rounded-[3rem] overflow-hidden bg-gradient-to-br from-blue-600 to-purple-700 text-center p-12 md:p-24">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          className="max-w-5xl mx-auto relative rounded-[3rem] overflow-hidden bg-gradient-to-br from-blue-600 to-purple-700 text-center p-12 md:p-24"
+        >
           <div className="absolute inset-0 bg-white/5 mix-blend-overlay"></div>
           <div className="relative z-10 space-y-8">
             <h2 className="text-4xl md:text-6xl font-bold tracking-tight">
@@ -365,11 +496,15 @@ export default function Home() {
               Let’s bring your idea to life with a team that cares about your
               success.
             </p>
-            <button className="px-10 py-5 bg-white text-blue-600 rounded-full font-bold text-xl hover:bg-blue-50 transition-colors shadow-xl">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-10 py-5 bg-white text-blue-600 rounded-full font-bold text-xl hover:bg-blue-50 transition-colors shadow-xl"
+            >
               Book a Strategy Call
-            </button>
+            </motion.button>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* 7️⃣ Footer */}
