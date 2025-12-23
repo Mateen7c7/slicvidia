@@ -39,27 +39,41 @@ export default function PortfolioSection() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.2 }}
-                            className="group relative aspect-video rounded-3xl overflow-hidden bg-zinc-800 border border-white/10"
+                            className="group relative min-h-[500px] rounded-3xl overflow-hidden bg-zinc-800 border border-white/10"
                         >
                             <div className="absolute inset-0 bg-gradient-to-br from-zinc-800 to-zinc-900 flex items-center justify-center group-hover:scale-110 transition-transform duration-700 ease-in-out">
                                 <span className="text-zinc-600 font-medium text-xl">
-                                    {project.projectName}
+                                    {project.projectName} image
                                 </span>
                             </div>
-                            <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-6 text-center backdrop-blur-sm">
+                            <div className="absolute inset-0 bg-black/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8 text-left backdrop-blur-md">
                                 <motion.div
                                     initial={{ y: 20, opacity: 0 }}
                                     whileInView={{ y: 0, opacity: 1 }}
-                                    className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
+                                    className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 space-y-4"
                                 >
-                                    <h3 className="text-2xl font-bold mb-2">
-                                        {project.projectName}
-                                    </h3>
-                                    <p className="text-zinc-300 mb-2">{project.client}</p>
-                                    <p className="text-zinc-400 text-sm mb-6">
-                                        {project.tools.join(" • ")}
-                                    </p>
-                                    <button className="px-6 py-2 bg-white text-black rounded-full font-semibold hover:bg-zinc-200">
+                                    <div>
+                                        <h3 className="text-2xl font-bold text-white mb-1">
+                                            {project.projectName}
+                                        </h3>
+                                        <p className="text-blue-400 font-medium">{project.client}</p>
+                                    </div>
+
+                                    <div className="space-y-2 text-sm text-zinc-300">
+                                        <p><strong className="text-white">Problem:</strong> {project.problem}</p>
+                                        <p><strong className="text-white">Solution:</strong> {project.solution}</p>
+                                        <p><strong className="text-white">Result:</strong> <span className="text-green-400">{project.results}</span></p>
+                                    </div>
+
+                                    <div className="flex flex-wrap gap-2 pt-2">
+                                        {project.tools.map((tool, index) => (
+                                            <span key={index} className="px-3 py-1 bg-white/10 rounded-full text-xs text-zinc-300 border border-white/5">
+                                                {tool}
+                                            </span>
+                                        ))}
+                                    </div>
+
+                                    <button className="w-full mt-4 px-6 py-3 bg-white text-black rounded-full font-bold hover:bg-zinc-200 transition-colors">
                                         View Case Study
                                     </button>
                                 </motion.div>
