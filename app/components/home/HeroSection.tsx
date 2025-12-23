@@ -70,30 +70,44 @@ export default function HeroSection() {
           variants={staggerContainer}
           className="space-y-8"
         >
+          {/* Outcome-Driven Headline */}
           <motion.h1
             variants={heroTextVariant}
             className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-tight"
           >
-            Smart Digital Solutions to <br className="hidden md:block" />
+            Turn Your Digital Presence Into <br className="hidden md:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 animate-gradient-x">
-              Build, Manage & Grow
-            </span>{" "}
-            <br className="hidden md:block" />
-            Your Online Presence.
+              A Growth Engine
+            </span>
           </motion.h1>
 
+          {/* Clarified Audience & Value Prop */}
           <motion.p
             variants={fadeIn}
             className="text-xl md:text-2xl text-zinc-400 max-w-3xl mx-auto"
           >
-            Web Development | Full-Stack Software | Digital Marketing |
-            Content Creation
+            For ambitious businesses ready to scale. We combine high-performance
+            web development with data-driven marketing to convert visitors into
+            revenue.
           </motion.p>
+
+          {/* Trust Indicators / Proof Text */}
+          <motion.div variants={fadeIn} className="flex items-center justify-center gap-6 text-sm md:text-base text-zinc-500 font-medium">
+            <span className="flex items-center gap-2">
+              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+              Results-Driven
+            </span>
+            <span className="hidden md:inline">•</span>
+            <span>Tailored Strategies</span>
+            <span className="hidden md:inline">•</span>
+            <span>Long-Term Support</span>
+          </motion.div>
 
           <motion.div
             variants={fadeIn}
             className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8"
           >
+            {/* Improved CTA: Free Consultation */}
             <motion.button
               whileHover={{
                 scale: 1.05,
@@ -102,8 +116,9 @@ export default function HeroSection() {
               whileTap={{ scale: 0.95 }}
               className="w-full sm:w-auto px-8 py-4 bg-blue-600 text-white rounded-full font-semibold text-lg transition-all"
             >
-              Get a Free Quote
+              Get Your Free Audit
             </motion.button>
+            {/* Secondary CTA */}
             <motion.button
               whileHover={{
                 scale: 1.05,
@@ -112,7 +127,7 @@ export default function HeroSection() {
               whileTap={{ scale: 0.95 }}
               className="w-full sm:w-auto px-8 py-4 bg-white/5 border border-white/10 text-white rounded-full font-semibold text-lg transition-all backdrop-blur-sm flex items-center justify-center gap-2 group"
             >
-              Schedule a Call
+              Book a Strategy Call
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </motion.button>
           </motion.div>

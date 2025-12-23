@@ -12,7 +12,7 @@ import FAQSection from "./components/home/FAQSection";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
-  const scaleX = useTransform(scrollYProgress, [0, 100], [0, 1]);
+  const scaleX = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   return (
     <div className="min-h-screen">
