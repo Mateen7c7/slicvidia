@@ -1,5 +1,8 @@
 "use client";
 
+import Link from "next/link";
+import { services } from "../../lib/services-data";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import {
   Globe,
@@ -10,6 +13,8 @@ import {
   Video,
   Check,
   LucideIcon,
+  ChevronDown,
+  ChevronUp,
 } from "lucide-react";
 
 const iconMap: Record<string, LucideIcon> = {
@@ -35,6 +40,7 @@ const staggerContainer = {
 };
 
 interface Service {
+  slug: string;
   title: string;
   icon: string;
   shortDesc: string;
@@ -46,10 +52,18 @@ interface Service {
   offerings: string[];
   process: { title: string; desc: string }[];
   cta: string;
+  relatedServices?: string[];
+  faqs?: { question: string; answer: string }[];
 }
 
 export default function ServiceContent({ service }: { service: Service }) {
   const Icon = iconMap[service.icon] || Globe;
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+
+  // Resolve related services
+  const relatedServicesData = service.relatedServices
+    ? services.filter((s) => service.relatedServices?.includes(s.slug))
+    : [];
 
   return (
     <div className="min-h-screen pt-20">
@@ -188,6 +202,65 @@ export default function ServiceContent({ service }: { service: Service }) {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      {service.faqs && service.faqs.length > 0 && (
+        <section className="py-20 px-6 bg-zinc-900/30 border-t border-white/5">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl font-bold mb-10 text-center">Frequently Asked Questions</h2>
+            <div className="space-y-4">
+              {service.faqs.map((faq, index) => (
+                <div
+                  key={index}
+                  className="border border-white/10 rounded-2xl bg-zinc-900/30 overflow-hidden"
+                >
+                  <button
+                    onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
+                    className="w-full flex items-center justify-between p-6 text-left focus:outline-none hover:bg-white/5 transition-colors"
+                  >
+                    <span className="text-lg font-medium pr-8">{faq.question}</span>
+                    {openFaqIndex === index ? (
+                      <ChevronUp className="flex-shrink-0 w-6 h-6 text-blue-400" />
+                    ) : (
+                      <ChevronDown className="flex-shrink-0 w-6 h-6 text-zinc-500" />
+                    )}
+                  </button>
+                  {openFaqIndex === index && (
+                    <div className="px-6 pb-6 text-zinc-400 leading-relaxed border-t border-white/5 pt-4">
+                      {faq.answer}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Related Services Section */}
+      {relatedServicesData.length > 0 && (
+        <section className="py-20 px-6">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-3xl font-bold mb-10 text-center">You Might Also Need</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              {relatedServicesData.map((relService) => {
+                const RelIcon = iconMap[relService.icon] || Globe;
+                return (
+                  <Link key={relService.slug} href={`/services/${relService.slug}`}>
+                    <div className="group p-8 rounded-3xl bg-zinc-900 border border-white/10 hover:border-blue-500/30 transition-all h-full cursor-pointer">
+                      <div className="mb-6 p-4 bg-blue-500/10 text-blue-400 rounded-2xl w-fit group-hover:bg-blue-500 group-hover:text-white transition-colors">
+                        <RelIcon className="w-8 h-8" />
+                      </div>
+                      <h3 className="text-2xl font-bold mb-3">{relService.title}</h3>
+                      <p className="text-zinc-400">{relService.shortDesc}</p>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* CTA */}
       <section className="py-32 px-6">
