@@ -1,29 +1,34 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Search, Lightbulb, PenTool, Rocket } from "lucide-react";
+import { Search, Lightbulb, PenTool, Rocket, Code } from "lucide-react";
 
 export default function ProcessSection() {
     const steps = [
         {
             icon: <Search className="w-6 h-6" />,
             title: "Discovery",
-            desc: "We start by understanding your goals, audience, and challenges.",
+            desc: "We research your business, audience, and competitors to define clear goals.",
         },
         {
             icon: <Lightbulb className="w-6 h-6" />,
-            title: "Strategy",
-            desc: "We craft a data-driven plan tailored to your business needs.",
+            title: "Planning",
+            desc: "We create a roadmap, wireframes, and strategy to ensure success.",
         },
         {
             icon: <PenTool className="w-6 h-6" />,
-            title: "Execution",
-            desc: "Our team builds, designs, and writes with precision and creativity.",
+            title: "Development",
+            desc: "Our experts build your solution using modern, scalable technologies.",
+        },
+        {
+            icon: <Code className="w-6 h-6" />, // Using Code icon for Testing as a proxy for technical validation
+            title: "Testing",
+            desc: "Rigorous testing to ensure performance, security, and a bug-free experience.",
         },
         {
             icon: <Rocket className="w-6 h-6" />,
-            title: "Launch & Grow",
-            desc: "We launch your solution and optimize for continuous growth.",
+            title: "Launch & Support",
+            desc: "We deploy your project and provide ongoing support to help you grow.",
         },
     ];
 
