@@ -8,22 +8,22 @@ const faqs = [
     {
         question: "How long does a typical project take?",
         answer:
-            "Timelines vary based on complexity. A standard website takes 2-4 weeks, while custom software or extensive marketing campaigns may take 4-8 weeks or more. We provide a detailed timeline during the discovery phase.",
+            "Timelines vary based on complexity. Standard websites typically take 2-4 weeks, while custom software or complex applications can take 6-12 weeks. We provide a guaranteed timeline before starting.",
     },
     {
-        question: "Do you offer ongoing support?",
+        question: "How does your pricing work?",
         answer:
-            "Yes! We offer maintenance packages to ensure your website or application stays secure, up-to-date, and optimized. We're here for the long haul.",
+            "We offer transparent, project-based pricing. No hidden fees or hourly billing surprises. For larger projects, we break payments into milestones to ensure you only pay for completed work.",
     },
     {
-        question: "What industries do you work with?",
+        question: "Do you provide support after launch?",
         answer:
-            "We work with a diverse range of industries including Tech Startups, E-commerce, Professional Services, Real Estate, and more. Our adaptable approach fits various business needs.",
+            "Absolutely. We offer dedicated maintenance packages that include security updates, content changes, and performance monitoring. We're your long-term technical partner.",
     },
     {
-        question: "Can you help with rebranding?",
+        question: "Can you redesign my existing website?",
         answer:
-            "Absolutely. Whether you need a logo refresh or a complete brand overhaul, our design and content teams can help redefine your identity.",
+            "Yes! We specialize in modernizing legacy sites. We'll audit your current setup, keep what works (like SEO authority), and rebuild the UI/UX to improve conversion and performance.",
     },
 ];
 
