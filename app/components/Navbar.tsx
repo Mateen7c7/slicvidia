@@ -45,11 +45,12 @@ export default function Navbar() {
             <motion.button
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(59, 130, 246, 0.5)" }}
               whileTap={{ scale: 0.95 }}
-              className="bg-white text-black px-5 py-2 rounded-full font-semibold hover:bg-zinc-200 transition-colors"
+              className="bg-gradient-to-r from-[#3B82F6] to-[#7C3AED] text-white px-6 py-2.5 rounded-full font-bold transition-all shadow-lg hover:shadow-blue-500/25 relative overflow-hidden group"
             >
-              Get a Quote
+              <span className="relative z-10">Get a Quote</span>
+              <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
             </motion.button>
           </Link>
         </div>
@@ -93,7 +94,7 @@ export default function Navbar() {
               About
             </Link>
             <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
-              <button className="bg-white text-black px-5 py-2 rounded-full font-semibold w-full">
+              <button className="bg-gradient-to-r from-[#3B82F6] to-[#7C3AED] text-white px-5 py-3 rounded-full font-bold w-full shadow-lg">
                 Get a Quote
               </button>
             </Link>
