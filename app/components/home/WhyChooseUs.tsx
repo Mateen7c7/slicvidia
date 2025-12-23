@@ -40,24 +40,24 @@ export default function WhyChooseUs() {
                 >
                     {[
                         {
-                            icon: <Cpu className="w-8 h-8 text-blue-400" />,
-                            title: "End-to-End Solutions",
-                            desc: "Tech + Marketing under one roof.",
-                        },
-                        {
                             icon: <Zap className="w-8 h-8 text-yellow-400" />,
-                            title: "Fast Delivery",
-                            desc: "Rapid prototyping and ongoing support.",
+                            title: "Performance-First",
+                            desc: "Speed matters. We build lightweight, high-speed solutions that rank better and convert more.",
                         },
                         {
-                            icon: <BarChart className="w-8 h-8 text-green-400" />,
-                            title: "Scalable Growth",
-                            desc: "Software that grows with your business.",
+                            icon: <Cpu className="w-8 h-8 text-blue-400" />,
+                            title: "Developer-Led Strategy",
+                            desc: "Direct access to engineers. No middlemen, just technical experts solving your problems.",
                         },
                         {
                             icon: <MessageSquare className="w-8 h-8 text-purple-400" />,
-                            title: "Transparent",
-                            desc: "Clear communication every step of the way.",
+                            title: "Transparent & Open",
+                            desc: "No jargon or hidden fees. You get clear updates and honest advice at every step.",
+                        },
+                        {
+                            icon: <BarChart className="w-8 h-8 text-green-400" />,
+                            title: "Long-Term Growth",
+                            desc: "We don't just launch and leave. We partner with you to scale and maintain your success.",
                         },
                     ].map((item, index) => (
                         <motion.div
