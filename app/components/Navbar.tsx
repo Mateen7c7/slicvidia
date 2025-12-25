@@ -28,6 +28,7 @@ export default function Navbar() {
             { name: "Services", href: "/services" },
             { name: "Portfolio", href: "/#portfolio" },
             { name: "About", href: "/about" },
+            { name: "Privacy", href: "/privacy" },
           ].map((item, i) => (
             <motion.a
               key={item.name}
@@ -95,6 +96,13 @@ export default function Navbar() {
               onClick={() => setIsMenuOpen(false)}
             >
               About
+            </Link>
+            <Link
+              href="/privacy"
+              className="hover:text-white"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Privacy
             </Link>
             <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
               <button className="bg-linear-to-r from-[#3B82F6] to-[#7C3AED] text-white px-5 py-3 rounded-full font-bold w-full shadow-lg">
