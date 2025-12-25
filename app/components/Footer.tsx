@@ -20,7 +20,9 @@ export default function Footer() {
         </div>
 
         <div>
-          <h4 className="font-bold mb-6 text-white text-lg">Services</h4>
+          <h4 className="font-bold mb-6 text-white text-lg hover:text-blue-400 transition-colors">
+            <Link href="/services">Services</Link>
+          </h4>
           <ul className="space-y-3 text-[#A3B3C9]">
             <li>
               <Link
@@ -68,6 +70,11 @@ export default function Footer() {
         <div>
           <h4 className="font-bold mb-6 text-white text-lg">Company</h4>
           <ul className="space-y-3 text-[#A3B3C9]">
+            <li>
+              <Link href="/" className="hover:text-white transition-colors">
+                Home
+              </Link>
+            </li>
             <li>
               <Link
                 href="/about"

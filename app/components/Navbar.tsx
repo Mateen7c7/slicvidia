@@ -25,24 +25,27 @@ export default function Navbar() {
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-[#A3B3C9]">
           {[
+            { name: "Home", href: "/" },
             { name: "Services", href: "/services" },
             { name: "Portfolio", href: "/#portfolio" },
             { name: "About", href: "/about" },
+            { name: "Careers", href: "/careers" },
             { name: "Privacy", href: "/privacy" },
             { name: "Refund", href: "/refund" },
             { name: "Terms", href: "/terms" },
+            { name: "Contact", href: "/contact" },
           ].map((item, i) => (
-            <motion.a
-              key={item.name}
-              href={item.href}
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 * i, duration: 0.5 }}
-              className="hover:text-white transition-colors relative group"
-            >
-              {item.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#3B82F6] transition-all group-hover:w-full" />
-            </motion.a>
+            <Link key={item.name} href={item.href}>
+              <motion.span
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 * i, duration: 0.5 }}
+                className="hover:text-white transition-colors relative group block cursor-pointer"
+              >
+                {item.name}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#3B82F6] transition-all group-hover:w-full" />
+              </motion.span>
+            </Link>
           ))}
           <Link href="/contact">
             <motion.button
@@ -79,6 +82,13 @@ export default function Navbar() {
         >
           <div className="flex flex-col p-6 gap-4 text-[#A3B3C9]">
             <Link
+              href="/"
+              className="hover:text-white"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Home
+            </Link>
+            <Link
               href="/services"
               className="hover:text-white"
               onClick={() => setIsMenuOpen(false)}
@@ -100,6 +110,13 @@ export default function Navbar() {
               About
             </Link>
             <Link
+              href="/careers"
+              className="hover:text-white"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Careers
+            </Link>
+            <Link
               href="/privacy"
               className="hover:text-white"
               onClick={() => setIsMenuOpen(false)}
@@ -119,6 +136,13 @@ export default function Navbar() {
               onClick={() => setIsMenuOpen(false)}
             >
               Terms
+            </Link>
+            <Link
+              href="/contact"
+              className="hover:text-white"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Contact
             </Link>
             <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
               <button className="bg-linear-to-r from-[#3B82F6] to-[#7C3AED] text-white px-5 py-3 rounded-full font-bold w-full shadow-lg">
