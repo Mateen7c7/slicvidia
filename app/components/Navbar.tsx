@@ -16,7 +16,7 @@ export default function Navbar() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-2xl font-bold tracking-tighter bg-gradient-to-r from-[#3B82F6] to-[#7C3AED] bg-clip-text text-transparent cursor-pointer"
+            className="text-2xl font-bold tracking-tighter bg-linear-to-r from-[#3B82F6] to-[#7C3AED] bg-clip-text text-transparent cursor-pointer"
           >
             Slicvidia
           </motion.div>
@@ -25,7 +25,7 @@ export default function Navbar() {
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-[#A3B3C9]">
           {[
-            { name: "Services", href: "/#services" },
+            { name: "Services", href: "/services" },
             { name: "Portfolio", href: "/#portfolio" },
             { name: "About", href: "/about" },
           ].map((item, i) => (
@@ -45,9 +45,12 @@ export default function Navbar() {
             <motion.button
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
-              whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(59, 130, 246, 0.5)" }}
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0 0 20px rgba(59, 130, 246, 0.5)",
+              }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-[#3B82F6] to-[#7C3AED] text-white px-6 py-2.5 rounded-full font-bold transition-all shadow-lg hover:shadow-blue-500/25 relative overflow-hidden group"
+              className="bg-linear-to-r from-[#3B82F6] to-[#7C3AED] text-white px-6 py-2.5 rounded-full font-bold transition-all shadow-lg hover:shadow-blue-500/25 relative overflow-hidden group"
             >
               <span className="relative z-10">Get a Quote</span>
               <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
@@ -73,7 +76,7 @@ export default function Navbar() {
         >
           <div className="flex flex-col p-6 gap-4 text-[#A3B3C9]">
             <Link
-              href="/#services"
+              href="/services"
               className="hover:text-white"
               onClick={() => setIsMenuOpen(false)}
             >
@@ -94,7 +97,7 @@ export default function Navbar() {
               About
             </Link>
             <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
-              <button className="bg-gradient-to-r from-[#3B82F6] to-[#7C3AED] text-white px-5 py-3 rounded-full font-bold w-full shadow-lg">
+              <button className="bg-linear-to-r from-[#3B82F6] to-[#7C3AED] text-white px-5 py-3 rounded-full font-bold w-full shadow-lg">
                 Get a Quote
               </button>
             </Link>
