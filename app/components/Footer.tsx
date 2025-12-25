@@ -100,6 +100,14 @@ export default function Footer() {
                 Contact
               </Link>
             </li>
+            <li>
+              <Link
+                href="/terms"
+                className="hover:text-white transition-colors"
+              >
+                Terms & Conditions
+              </Link>
+            </li>
           </ul>
         </div>
 
@@ -156,12 +164,12 @@ export default function Footer() {
       </div>
 
       <div className="max-w-7xl mx-auto pt-8 border-t border-[#2A3240] flex flex-col md:flex-row justify-between items-center gap-4 text-[#8290A5] text-sm">
-        <div>© 2024 Slicvidia. All rights reserved.</div>
+        <div>© 2025 Slicvidia. All rights reserved.</div>
         <div className="flex gap-6">
           <Link href="/privacy" className="hover:text-white">
             Privacy Policy
           </Link>
-          <Link href="#" className="hover:text-white">
+          <Link href="/terms" className="hover:text-white">
             Terms of Service
           </Link>
         </div>
