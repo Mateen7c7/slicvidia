@@ -29,6 +29,7 @@ export default function Navbar() {
             { name: "Portfolio", href: "/#portfolio" },
             { name: "About", href: "/about" },
             { name: "Privacy", href: "/privacy" },
+            { name: "Refund", href: "/refund" },
             { name: "Terms", href: "/terms" },
           ].map((item, i) => (
             <motion.a
@@ -104,6 +105,13 @@ export default function Navbar() {
               onClick={() => setIsMenuOpen(false)}
             >
               Privacy
+            </Link>
+            <Link
+              href="/refund"
+              className="hover:text-white"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Refund
             </Link>
             <Link
               href="/terms"

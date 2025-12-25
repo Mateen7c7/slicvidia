@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function TermsAndConditions() {
   const fadeIn = {
@@ -88,6 +89,13 @@ export default function TermsAndConditions() {
               billing cycle.
             </li>
           </ul>
+          <p className="pt-4 italic">
+            For more details, please view our full{" "}
+            <Link href="/refund" className="text-blue-400 hover:underline">
+              Refund & Cancellation Policy
+            </Link>
+            .
+          </p>
         </div>
       ),
     },
