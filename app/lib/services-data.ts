@@ -42,6 +42,21 @@ export const services = [
       },
     ],
     cta: "Get Your Custom Website Quote",
+    relatedServices: ["web-management-maintenance", "digital-marketing"],
+    faqs: [
+      {
+        question: "Do you use templates or build from scratch?",
+        answer: "We primarily build custom solutions tailored to your specific needs, but we can also work with templates if budget/timeline requires it.",
+      },
+      {
+        question: "Will I be able to update the website myself?",
+        answer: "Yes, we integrate user-friendly CMS platforms allowing you to easily manage text and images.",
+      },
+      {
+        question: "Is SEO included?",
+        answer: "We build with SEO best practices (structure, speed, meta tags), but ongoing content strategy is a separate service.",
+      },
+    ],
   },
   {
     slug: "software-development",
@@ -86,6 +101,21 @@ export const services = [
       },
     ],
     cta: "Discuss Your Software Project",
+    relatedServices: ["website-development", "web-management-maintenance"],
+    faqs: [
+      {
+        question: "Do I own the code?",
+        answer: "Yes, once the project is paid in full, you own 100% of the intellectual property and code.",
+      },
+      {
+        question: "What technology stack do you use?",
+        answer: "We typically use modern stacks like React/Next.js for frontend and Node.js/Python for backend, but we choose the best tool for the job.",
+      },
+      {
+        question: "Can you scale the app as we grow?",
+        answer: "Absolutely. We design architectures specifically to handle growth in users and data.",
+      },
+    ],
   },
   {
     slug: "web-management-maintenance",
@@ -120,6 +150,21 @@ export const services = [
       },
     ],
     cta: "Secure Your Website Today",
+    relatedServices: ["website-development", "software-development"],
+    faqs: [
+      {
+        question: "What happens if my site goes down?",
+        answer: "Our monitoring alerts us immediately. We investigate and resolve downtime issues as a priority.",
+      },
+      {
+        question: "Can I cancel my plan anytime?",
+        answer: "Yes, our maintenance plans are month-to-month with no long-term lock-in.",
+      },
+      {
+        question: "Does this include hosting?",
+        answer: "We can manage your hosting, but the hosting fee itself is usually separate or bundled depending on the plan.",
+      },
+    ],
   },
   {
     slug: "digital-marketing",
@@ -160,6 +205,21 @@ export const services = [
       },
     ],
     cta: "Boost Your Traffic Now",
+    relatedServices: ["website-development", "content-video-editing"],
+    faqs: [
+      {
+        question: "How long does it take to see SEO results?",
+        answer: "SEO is a long-term strategy. Typically, significant results are seen within 3-6 months.",
+      },
+      {
+        question: "What is the recommended ad budget?",
+        answer: "It varies by industry, but we recommend starting with a budget that allows for sufficient data gathering (testing).",
+      },
+      {
+        question: "Do you provide monthly reports?",
+        answer: "Yes, we provide detailed reports showing traffic, rankings, and conversion metrics.",
+      },
+    ],
   },
   {
     slug: "content-video-editing",
@@ -197,5 +257,20 @@ export const services = [
       },
     ],
     cta: "Start Creating Content",
+    relatedServices: ["digital-marketing", "website-development"],
+    faqs: [
+      {
+        question: "Can you edit my existing raw footage?",
+        answer: "Yes, we can turn your raw footage into polished, professional videos.",
+      },
+      {
+        question: "Do you write scripts?",
+        answer: "Yes, we offer scriptwriting services to help structure your message effectively.",
+      },
+      {
+        question: "What file formats do you deliver?",
+        answer: "We deliver in all standard formats optimized for your specific platforms (e.g., vertical for TikTok, 4K for YouTube).",
+      },
+    ],
   },
 ];
