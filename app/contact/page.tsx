@@ -69,9 +69,17 @@ const contactInfo = [
 ];
 
 const socialLinks = [
-  { icon: Instagram, href: "#", label: "Instagram" },
-  { icon: Twitter, href: "#", label: "Twitter" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
+  {
+    icon: Instagram,
+    href: "https://www.instagram.com/slicvidia_official/",
+    label: "Instagram",
+  },
+  { icon: Twitter, href: "https://x.com/slicvidia", label: "Twitter" },
+  {
+    icon: Linkedin,
+    href: "https://www.linkedin.com/company/slicvidia/",
+    label: "LinkedIn",
+  },
   { icon: Github, href: "#", label: "GitHub" },
 ];
 

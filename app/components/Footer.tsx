@@ -148,19 +148,25 @@ export default function Footer() {
             <li className="flex gap-4 mt-6">
               {/* Social Icons */}
               <a
-                href="#"
+                href="https://x.com/slicvidia"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#3B82F6] hover:text-white transition-colors text-white border border-white/10 hover:border-transparent"
               >
                 𝕏
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/company/slicvidia/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#3B82F6] hover:text-white transition-colors text-white border border-white/10 hover:border-transparent"
               >
                 In
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/slicvidia_official/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#3B82F6] hover:text-white transition-colors text-white border border-white/10 hover:border-transparent"
               >
                 Ig
