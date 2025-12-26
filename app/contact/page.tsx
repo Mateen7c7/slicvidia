@@ -16,6 +16,7 @@ import {
   Github,
   Shield,
 } from "lucide-react";
+import { submitContactForm } from "./actions";
 
 const contactInfo = [
   {
@@ -80,14 +81,12 @@ const socialLinks = [
     href: "https://www.linkedin.com/company/slicvidia/",
     label: "LinkedIn",
   },
-  
 ];
 
 export default function ContactPage() {
   const [formState, setFormState] = useState({
     name: "",
     email: "",
-    subject: "",
     service: "",
     message: "",
   });
@@ -97,18 +96,26 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    console.log("Form submitted:", formState);
-    alert("Message sent successfully! We'll get back to you shortly.");
-    setIsSubmitting(false);
-    setFormState({
-      name: "",
-      email: "",
-      subject: "",
-      service: "",
-      message: "",
-    });
+
+    try {
+      const result = await submitContactForm(formState);
+      if (result.success) {
+        alert("Message sent successfully! We'll get back to you shortly.");
+        setFormState({
+          name: "",
+          email: "",
+          service: "",
+          message: "",
+        });
+      } else {
+        alert(result.error || "Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      alert("An unexpected error occurred. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
