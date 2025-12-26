@@ -52,8 +52,8 @@ const contactInfo = [
   {
     icon: Phone,
     label: "Call Us",
-    value: "+1 (555) 123-4567",
-    href: "tel:+15551234567",
+    value: "+91 72078 31604",
+    href: "tel:+917207831604",
     color: "text-purple-500",
     bg: "bg-purple-500/10",
   },
@@ -353,7 +353,7 @@ export default function ContactPage() {
 
       {/* Floating Messenger (WhatsApp) */}
       <motion.a
-        href="https://wa.me/1234567890"
+        href="https://wa.me/917207831604"
         target="_blank"
         rel="noopener noreferrer"
         initial={{ scale: 0 }}

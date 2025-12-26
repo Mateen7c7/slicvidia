@@ -136,13 +136,13 @@ export default function Footer() {
             </li>
             <li>
               <a
-                href="tel:+15551234567"
+                href="tel:+917207831604"
                 className="flex items-center gap-3 hover:text-white transition-colors group"
               >
                 <span className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-[#3B82F6] transition-colors">
                   📞
                 </span>
-                +1 (555) 123-4567
+                +91 72078 31604
               </a>
             </li>
             <li className="flex gap-4 mt-6">

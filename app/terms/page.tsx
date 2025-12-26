@@ -152,7 +152,7 @@ export default function TermsAndConditions() {
             <strong>Email:</strong> legal@slicvidia.com
           </p>
           <p>
-            <strong>Phone:</strong> +1 (555) 123-4567
+            <strong>Phone:</strong> +91 72078 31604
           </p>
         </div>
       ),
