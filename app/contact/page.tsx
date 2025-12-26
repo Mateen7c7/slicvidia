@@ -80,7 +80,7 @@ const socialLinks = [
     href: "https://www.linkedin.com/company/slicvidia/",
     label: "LinkedIn",
   },
-  { icon: Github, href: "#", label: "GitHub" },
+  
 ];
 
 export default function ContactPage() {

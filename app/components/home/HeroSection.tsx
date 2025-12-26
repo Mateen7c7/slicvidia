@@ -2,6 +2,7 @@
 
 import { motion, Variants } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 const fadeIn: Variants = {
   hidden: { opacity: 0, y: 20 },
@@ -92,7 +93,10 @@ export default function HeroSection() {
           </motion.p>
 
           {/* Trust Indicators / Proof Text */}
-          <motion.div variants={fadeIn} className="flex items-center justify-center gap-6 text-sm md:text-base text-zinc-500 font-medium">
+          <motion.div
+            variants={fadeIn}
+            className="flex items-center justify-center gap-6 text-sm md:text-base text-zinc-500 font-medium"
+          >
             <span className="flex items-center gap-2">
               <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
               Results-Driven
@@ -108,28 +112,32 @@ export default function HeroSection() {
             className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8"
           >
             {/* Improved CTA: Free Consultation */}
-            <motion.button
-              whileHover={{
-                scale: 1.05,
-                boxShadow: "0 0 20px rgba(59, 130, 246, 0.5)",
-              }}
-              whileTap={{ scale: 0.95 }}
-              className="w-full sm:w-auto px-8 py-4 bg-blue-600 text-white rounded-full font-semibold text-lg transition-all"
-            >
-              Get Your Free Audit
-            </motion.button>
+            <Link href="/contact" className="w-full sm:w-auto">
+              <motion.button
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0 0 20px rgba(59, 130, 246, 0.5)",
+                }}
+                whileTap={{ scale: 0.95 }}
+                className="w-full px-8 py-4 bg-blue-600 text-white rounded-full font-semibold text-lg transition-all"
+              >
+                Get Your Free Audit
+              </motion.button>
+            </Link>
             {/* Secondary CTA */}
-            <motion.button
-              whileHover={{
-                scale: 1.05,
-                backgroundColor: "rgba(255,255,255,0.1)",
-              }}
-              whileTap={{ scale: 0.95 }}
-              className="w-full sm:w-auto px-8 py-4 bg-white/5 border border-white/10 text-white rounded-full font-semibold text-lg transition-all backdrop-blur-sm flex items-center justify-center gap-2 group"
-            >
-              Book a Strategy Call
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </motion.button>
+            <Link href="/contact" className="w-full sm:w-auto">
+              <motion.button
+                whileHover={{
+                  scale: 1.05,
+                  backgroundColor: "rgba(255,255,255,0.1)",
+                }}
+                whileTap={{ scale: 0.95 }}
+                className="w-full px-8 py-4 bg-white/5 border border-white/10 text-white rounded-full font-semibold text-lg transition-all backdrop-blur-sm flex items-center justify-center gap-2 group"
+              >
+                Book a Strategy Call
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </motion.button>
+            </Link>
           </motion.div>
         </motion.div>
       </div>
