@@ -19,6 +19,9 @@ export const metadata: Metadata = {
   title: "Slicvidia | Smart Digital Solutions",
   description:
     "We build and manage digital solutions that help businesses grow. Web Development, Digital Marketing, and more.",
+  icons: {
+    icon: "/slicvidialogo.jpeg",
+  },
 };
 
 export default function RootLayout({
