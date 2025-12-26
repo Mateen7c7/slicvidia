@@ -149,7 +149,7 @@ export default function TermsAndConditions() {
             <strong>Legal Entity:</strong> Hakeem software solutions
           </p>
           <p>
-            <strong>Email:</strong> hello@slicvidia.com
+            <strong>Email:</strong> legal@slicvidia.com
           </p>
           <p>
             <strong>Phone:</strong> +1 (555) 123-4567

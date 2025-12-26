@@ -45,7 +45,7 @@ export default function RefundPolicy() {
             </li>
             <li>
               <strong>Notice Period:</strong> All cancellation requests must be
-              submitted in writing to <strong>hello@slicvidia.com</strong>.
+              submitted in writing to <strong>billing@slicvidia.com</strong>.
             </li>
           </ul>
         </div>
@@ -123,7 +123,7 @@ export default function RefundPolicy() {
             <strong>Legal Entity:</strong> Hakeem software solutions
           </p>
           <p>
-            <strong>Email:</strong> hello@slicvidia.com
+            <strong>Email:</strong> billing@slicvidia.com
           </p>
           <p>
             <strong>Address:</strong> Hyderabad, Telangana, India

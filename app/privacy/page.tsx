@@ -133,7 +133,7 @@ export default function PrivacyPolicy() {
             <strong>Legal Entity:</strong> Hakeem software solutions
           </p>
           <p>
-            <strong>Email:</strong> hello@slicvidia.com
+            <strong>Email:</strong> privacy@slicvidia.com
           </p>
           <p>
             <strong>Phone:</strong> +1 (555) 123-4567

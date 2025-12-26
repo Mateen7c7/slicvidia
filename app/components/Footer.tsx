@@ -125,13 +125,13 @@ export default function Footer() {
           <ul className="space-y-4 text-[#A3B3C9]">
             <li>
               <a
-                href="mailto:hello@slicvidia.com"
+                href="mailto:info@slicvidia.com"
                 className="flex items-center gap-3 hover:text-white transition-colors group"
               >
                 <span className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-[#3B82F6] transition-colors">
                   ✉️
                 </span>
-                hello@slicvidia.com
+                info@slicvidia.com
               </a>
             </li>
             <li>

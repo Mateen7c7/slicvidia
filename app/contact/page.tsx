@@ -19,11 +19,35 @@ import {
 const contactInfo = [
   {
     icon: Mail,
-    label: "Email Us",
-    value: "hello@slicvidia.com",
-    href: "mailto:hello@slicvidia.com",
+    label: "Sales & Inquiries",
+    value: "contact@slicvidia.com",
+    href: "mailto:contact@slicvidia.com",
     color: "text-blue-500",
     bg: "bg-blue-500/10",
+  },
+  {
+    icon: MessageCircle,
+    label: "Technical Support",
+    value: "support@slicvidia.com",
+    href: "mailto:support@slicvidia.com",
+    color: "text-emerald-500",
+    bg: "bg-emerald-500/10",
+  },
+  {
+    icon: Github,
+    label: "Org. Admin",
+    value: "admin@slicvidia.com",
+    href: "mailto:admin@slicvidia.com",
+    color: "text-zinc-400",
+    bg: "bg-zinc-400/10",
+  },
+  {
+    icon: MessageCircle,
+    label: "General Inquiry",
+    value: "hello@slicvidia.com",
+    href: "mailto:hello@slicvidia.com",
+    color: "text-pink-500",
+    bg: "bg-pink-500/10",
   },
   {
     icon: Phone,
@@ -117,7 +141,7 @@ export default function ContactPage() {
             >
               <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
                 Let&apos;s Build Your <br />
-                <span className="bg-gradient-to-r from-[#3B82F6] via-[#7C3AED] to-[#28E7FF] bg-clip-text text-transparent">
+                <span className="bg-linear-to-r from-[#3B82F6] via-[#7C3AED] to-[#28E7FF] bg-clip-text text-transparent">
                   Digital Future
                 </span>
               </h1>
@@ -147,7 +171,7 @@ export default function ContactPage() {
                   <h3 className="text-sm font-semibold text-[#8290A5] uppercase tracking-wider mb-1">
                     {info.label}
                   </h3>
-                  <p className="text-white font-medium break-words">
+                  <p className="text-white font-medium wrap-break-word">
                     {info.value}
                   </p>
                 </motion.a>
@@ -180,8 +204,8 @@ export default function ContactPage() {
             transition={{ duration: 0.7 }}
             className="relative"
           >
-            <div className="absolute -inset-1 bg-gradient-to-r from-[#3B82F6] to-[#7C3AED] rounded-[2rem] blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
-            <div className="relative bg-[#1A1F29]/80 backdrop-blur-xl p-8 md:p-10 rounded-[2rem] border border-[#2A3240] shadow-2xl">
+            <div className="absolute -inset-1 bg-linear-to-r from-[#3B82F6] to-[#7C3AED] rounded-4xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+            <div className="relative bg-[#1A1F29]/80 backdrop-blur-xl p-8 md:p-10 rounded-4xl border border-[#2A3240] shadow-2xl">
               <div className="mb-8">
                 <h2 className="text-2xl font-bold mb-2">Send us a Message</h2>
                 <p className="text-[#A3B3C9]">
@@ -280,7 +304,7 @@ export default function ContactPage() {
                   disabled={isSubmitting}
                   type="submit"
                   id="contact-submit"
-                  className="w-full bg-gradient-to-r from-[#3B82F6] to-[#7C3AED] text-white font-bold py-5 rounded-xl flex items-center justify-center gap-3 hover:shadow-lg hover:shadow-[#3B82F6]/25 transition-all disabled:opacity-50 disabled:cursor-not-allowed group"
+                  className="w-full bg-linear-to-r from-[#3B82F6] to-[#7C3AED] text-white font-bold py-5 rounded-xl flex items-center justify-center gap-3 hover:shadow-lg hover:shadow-[#3B82F6]/25 transition-all disabled:opacity-50 disabled:cursor-not-allowed group"
                 >
                   {isSubmitting ? (
                     <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -304,7 +328,7 @@ export default function ContactPage() {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-32 p-12 bg-gradient-to-br from-[#1A1F29] to-[#0D1117] rounded-[3rem] border border-[#2A3240] text-center relative overflow-hidden"
+          className="mt-32 p-12 bg-linear-to-br from-[#1A1F29] to-[#0D1117] rounded-[3rem] border border-[#2A3240] text-center relative overflow-hidden"
         >
           <div className="absolute top-0 right-0 p-8 opacity-10">
             <Calendar size={120} />
