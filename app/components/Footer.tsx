@@ -125,13 +125,13 @@ export default function Footer() {
           <ul className="space-y-4 text-[#A3B3C9]">
             <li>
               <a
-                href="mailto:info@slicvidia.com"
+                href="mailto:support@slicvidia.com"
                 className="flex items-center gap-3 hover:text-white transition-colors group"
               >
                 <span className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-[#3B82F6] transition-colors">
                   ✉️
                 </span>
-                info@slicvidia.com
+                support@slicvidia.com
               </a>
             </li>
             <li>
@@ -142,7 +142,7 @@ export default function Footer() {
                 <span className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-[#3B82F6] transition-colors">
                   📞
                 </span>
-                +91 72078 31604
+                +91-7207831604
               </a>
             </li>
             <li className="flex gap-4 mt-6">
@@ -171,7 +171,17 @@ export default function Footer() {
       </div>
 
       <div className="max-w-7xl mx-auto pt-8 border-t border-[#2A3240] flex flex-col md:flex-row justify-between items-center gap-4 text-[#8290A5] text-sm">
-        <div>© 2025 Slicvidia. All rights reserved.</div>
+        <div className="max-w-md">
+          <p className="text-gray-300">
+            © 2025 Slicvidia. All rights reserved.
+          </p>
+          <p className="mt-2 text-sm text-[#A3B3C9] leading-relaxed">
+            Slicvidia is a brand owned and operated by{" "}
+            <span className="text-white">Hakeem Software Solutions</span> (GST
+            Registered, India). All payments are processed under Hakeem Software
+            Solutions.
+          </p>
+        </div>
         <div className="flex gap-6">
           <Link href="/privacy" className="hover:text-white">
             Privacy Policy

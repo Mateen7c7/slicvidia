@@ -15,7 +15,7 @@ export default function RefundPolicy() {
       content: (
         <p>
           At <strong>Slicvidia</strong>, operating under{" "}
-          <strong>Hakeem software solutions</strong>, we are committed to
+          <strong>Hakeem Software Solutions</strong>, we are committed to
           providing high-quality digital solutions including web development,
           software services, and digital marketing. We value our clients&apos;
           satisfaction and have established this Refund and Cancellation Policy
@@ -102,9 +102,9 @@ export default function RefundPolicy() {
       content: (
         <p>
           Approved refunds will be processed within{" "}
-          <strong>5-7 business days</strong>. The refund will be credited back
-          to the original payment method used during the transaction (processed
-          securely via <strong>Stripe</strong>).
+          <strong>5-7 business days</strong>. Refunds, if applicable, are
+          processed by <strong>Hakeem Software Solutions</strong> through the
+          original payment method.
         </p>
       ),
     },
@@ -120,7 +120,7 @@ export default function RefundPolicy() {
             <strong>Brand:</strong> Slicvidia
           </p>
           <p>
-            <strong>Legal Entity:</strong> Hakeem software solutions
+            <strong>Legal Entity:</strong> Hakeem Software Solutions
           </p>
           <p>
             <strong>Email:</strong> billing@slicvidia.com
@@ -183,7 +183,7 @@ export default function RefundPolicy() {
           <p className="text-[#A3B3C9] text-sm">
             Thank you for trusting <strong>Slicvidia</strong>. We value our
             partnership and strive to maintain the highest standards of service
-            via <strong>Hakeem software solutions</strong>.
+            via <strong>Hakeem Software Solutions</strong>.
           </p>
         </motion.div>
       </div>

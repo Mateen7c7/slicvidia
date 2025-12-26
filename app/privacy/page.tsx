@@ -14,10 +14,10 @@ export default function PrivacyPolicy() {
       title: "1. Introduction",
       content: (
         <p>
-          Welcome to Slicvidia. This Privacy Policy describes how{" "}
-          <strong>Hakeem software solutions</strong> (&quot;we&quot;,
-          &quot;us&quot;, or &quot;our&quot;), the operator of{" "}
-          <strong>Slicvidia</strong>, collects, uses, and shares your personal
+          This website (slicvidia.com) is operated by{" "}
+          <strong>Hakeem Software Solutions</strong> (&quot;we&quot;,
+          &quot;our&quot;, or &quot;us&quot;). Welcome to Slicvidia. This
+          Privacy Policy describes how we collect, use, and share your personal
           information when you visit our website or use our services. We are
           committed to protecting your privacy and ensuring your personal data
           is handled securely and in compliance with applicable laws.
@@ -130,7 +130,7 @@ export default function PrivacyPolicy() {
             <strong>Brand:</strong> Slicvidia
           </p>
           <p>
-            <strong>Legal Entity:</strong> Hakeem software solutions
+            <strong>Legal Entity:</strong> Hakeem Software Solutions
           </p>
           <p>
             <strong>Email:</strong> privacy@slicvidia.com
@@ -192,7 +192,7 @@ export default function PrivacyPolicy() {
         >
           <p className="text-[#A3B3C9] text-sm">
             This Privacy Policy applies to the services provided by{" "}
-            <strong>Hakeem software solutions</strong> operating as{" "}
+            <strong>Hakeem Software Solutions</strong> operating as{" "}
             <strong>Slicvidia</strong>. By using our website, you agree to the
             terms outlined above.
           </p>

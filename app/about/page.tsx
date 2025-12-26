@@ -46,15 +46,22 @@ export default function AboutPage() {
           transition={{ duration: 0.6 }}
           className="text-center"
         >
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#3B82F6] to-[#7C3AED]">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-linear-to-r from-[#3B82F6] to-[#7C3AED]">
             Who We Are
           </h1>
-          <p className="text-lg md:text-xl text-[#A3B3C9] max-w-3xl mx-auto leading-relaxed">
-            Slicvidia was created with one goal: to help businesses grow in the
-            digital world. We combine development, design, marketing, and
-            content strategy to deliver seamless digital solutions under one
-            roof.
-          </p>
+          <div className="max-w-4xl mx-auto space-y-6">
+            <p className="text-lg md:text-xl text-[#A3B3C9] leading-relaxed">
+              Slicvidia is a technology services brand operated by{" "}
+              <span className="text-white font-semibold">
+                Hakeem Software Solutions
+              </span>
+              , a registered business in India.
+            </p>
+            <p className="text-lg md:text-xl text-[#A3B3C9] leading-relaxed">
+              We provide full-stack software development, SaaS solutions, and
+              digital marketing services to clients worldwide.
+            </p>
+          </div>
         </motion.div>
       </section>
 
@@ -67,7 +74,7 @@ export default function AboutPage() {
           transition={{ duration: 0.6 }}
           className="bg-[#1A1F29] border border-[#2A3240] rounded-2xl p-8 md:p-12 text-center relative overflow-hidden"
         >
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#3B82F6] via-[#7C3AED] to-[#28E7FF]" />
+          <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-[#3B82F6] via-[#7C3AED] to-[#28E7FF]" />
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
             Our Mission
           </h2>

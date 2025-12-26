@@ -16,7 +16,7 @@ export default function TermsAndConditions() {
       content: (
         <p>
           By accessing and using the website and services provided by{" "}
-          <strong>Hakeem software solutions</strong> (&quot;Company&quot;,
+          <strong>Hakeem Software Solutions</strong> (&quot;Company&quot;,
           &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;), operating under
           the brand name <strong>Slicvidia</strong>, you agree to be bound by
           these Terms & Conditions. If you do not agree to these terms, please
@@ -51,7 +51,7 @@ export default function TermsAndConditions() {
             </li>
             <li>
               <strong>Taxes:</strong> As a registered entity in India,{" "}
-              <strong>Hakeem software solutions</strong> complies with GST
+              <strong>Hakeem Software Solutions</strong> complies with GST
               regulations. Applicable GST will be added to the invoice where
               required by law.
             </li>
@@ -116,7 +116,7 @@ export default function TermsAndConditions() {
       content: (
         <p>
           To the maximum extent permitted by law,{" "}
-          <strong>Hakeem software solutions</strong> shall not be liable for any
+          <strong>Hakeem Software Solutions</strong> shall not be liable for any
           indirect, incidental, or consequential damages resulting from the use
           or inability to use our services, even if we have been advised of the
           possibility of such damages.
@@ -146,7 +146,7 @@ export default function TermsAndConditions() {
             <strong>Brand:</strong> Slicvidia
           </p>
           <p>
-            <strong>Legal Entity:</strong> Hakeem software solutions
+            <strong>Legal Entity:</strong> Hakeem Software Solutions
           </p>
           <p>
             <strong>Email:</strong> legal@slicvidia.com
@@ -174,6 +174,19 @@ export default function TermsAndConditions() {
           </h1>
           <p className="text-[#A3B3C9] text-lg max-w-2xl mx-auto">
             Last Updated: December 25, 2025
+          </p>
+        </motion.div>
+
+        {/* Legal Notice */}
+        <motion.div
+          className="mb-12 p-6 bg-blue-500/10 rounded-2xl border border-blue-500/20 text-center"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.2 }}
+        >
+          <p className="text-white font-medium">
+            All services provided under the brand <strong>Slicvidia</strong> are
+            legally offered by <strong>Hakeem Software Solutions</strong>.
           </p>
         </motion.div>
 
@@ -209,7 +222,7 @@ export default function TermsAndConditions() {
           <p className="text-[#A3B3C9] text-sm">
             Thank you for choosing <strong>Slicvidia</strong>. We look forward
             to working with you and providing exceptional digital solutions via{" "}
-            <strong>Hakeem software solutions</strong>.
+            <strong>Hakeem Software Solutions</strong>.
           </p>
         </motion.div>
       </div>
