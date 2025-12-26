@@ -5,6 +5,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import JsonLd from "./components/SEO/JsonLd";
+import { Toaster } from "sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -93,6 +94,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white selection:bg-blue-500 selection:text-white font-sans overflow-x-hidden`}
       >
         <JsonLd />
+        <Toaster richColors position="top-center" theme="dark" />
         <Navbar />
         {children}
         <Footer />

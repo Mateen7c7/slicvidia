@@ -13,9 +13,9 @@ import {
   Instagram,
   Twitter,
   Linkedin,
-  Github,
   Shield,
 } from "lucide-react";
+import { toast } from "sonner";
 import { submitContactForm } from "./actions";
 
 const contactInfo = [
@@ -100,7 +100,9 @@ export default function ContactPage() {
     try {
       const result = await submitContactForm(formState);
       if (result.success) {
-        alert("Message sent successfully! We'll get back to you shortly.");
+        toast.success(
+          "Message sent successfully! We'll get back to you shortly."
+        );
         setFormState({
           name: "",
           email: "",
@@ -108,11 +110,11 @@ export default function ContactPage() {
           message: "",
         });
       } else {
-        alert(result.error || "Something went wrong. Please try again.");
+        toast.error(result.error || "Something went wrong. Please try again.");
       }
     } catch (error) {
       console.error("Submission error:", error);
-      alert("An unexpected error occurred. Please try again.");
+      toast.error("An unexpected error occurred. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
