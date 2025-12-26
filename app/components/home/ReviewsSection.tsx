@@ -21,7 +21,7 @@ export default function ReviewsSection() {
                                 "We saw a 200% increase in leads within the first month. Slicvidia didn't just build a website; they built a sales engine.",
                             author: "Elena Rodriguez",
                             role: "Marketing Director",
-                            company: "TechFlow Solutions",
+                            company: "",
                             image: "https://i.pravatar.cc/150?u=a042581f4e29026704d",
                         },
                         {
@@ -29,7 +29,7 @@ export default function ReviewsSection() {
                                 "Their developer-led approach meant no communication gaps. Features were delivered faster and bug-free.",
                             author: "David Chen",
                             role: "CTO",
-                            company: "Nexus Systems",
+                            company: "",
                             image: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
                         },
                         {
@@ -37,7 +37,7 @@ export default function ReviewsSection() {
                                 "Finally, an agency that cares about long-term growth. The ongoing support has been a game-changer for scaling our platform.",
                             author: "Sarah Jenkins",
                             role: "Founder",
-                            company: "Bloom eCommerce",
+                            company: "",
                             image: "https://i.pravatar.cc/150?u=a04258114e29026302d",
                         },
                     ].map((review, index) => (

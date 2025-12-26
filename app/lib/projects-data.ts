@@ -13,7 +13,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: "1",
-    client: "TechStart Inc.",
+    client: "",
     projectName: "E-Commerce Platform Revamp",
     problem:
       "The client's existing e-commerce site was slow, not mobile-responsive, and had a high cart abandonment rate.",
@@ -27,7 +27,7 @@ export const projects: Project[] = [
   },
   {
     id: "2",
-    client: "GrowthLabs",
+    client: "",
     projectName: "SaaS Dashboard UI",
     problem:
       "Users found the previous dashboard confusing and difficult to navigate, leading to high churn.",

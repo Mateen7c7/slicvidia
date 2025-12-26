@@ -73,9 +73,9 @@ export default function PortfolioSection() {
                                         ))}
                                     </div>
 
-                                    <button className="w-full mt-4 px-6 py-3 bg-white text-black rounded-full font-bold hover:bg-zinc-200 transition-colors">
+                                    {/* <button className="w-full mt-4 px-6 py-3 bg-white text-black rounded-full font-bold hover:bg-zinc-200 transition-colors">
                                         View Case Study
-                                    </button>
+                                    </button> */}
                                 </motion.div>
                             </div>
                         </motion.div>
