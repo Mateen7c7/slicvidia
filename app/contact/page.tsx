@@ -276,7 +276,7 @@ export default function ContactPage() {
                     <option value="app-dev">Mobile App Development</option>
                     <option value="marketing">Digital Marketing</option>
                     <option value="design">UI/UX Design</option>
-                    <option value="other">General Inquiry</option>
+                    <option value="other">Other</option>
                   </select>
                 </div>
 
