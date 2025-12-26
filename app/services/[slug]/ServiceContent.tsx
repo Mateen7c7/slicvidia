@@ -118,7 +118,7 @@ export default function ServiceContent({ service }: { service: Service }) {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="p-8 rounded-3xl bg-gradient-to-br from-blue-900/20 to-purple-900/20 border border-white/10"
+            className="p-8 rounded-3xl bg-linear-to-br from-blue-900/20 to-purple-900/20 border border-white/10"
           >
             <h3 className="text-xl font-semibold mb-4 text-blue-300">
               Why It Matters
@@ -268,7 +268,7 @@ export default function ServiceContent({ service }: { service: Service }) {
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="max-w-4xl mx-auto text-center bg-gradient-to-r from-blue-600 to-purple-600 rounded-[3rem] p-12 md:p-20 relative overflow-hidden"
+          className="max-w-4xl mx-auto text-center bg-linear-to-r from-blue-600 to-purple-600 rounded-[3rem] p-12 md:p-20 relative overflow-hidden"
         >
           <div className="absolute inset-0 bg-white/10 mix-blend-overlay" />
           <div className="relative z-10">

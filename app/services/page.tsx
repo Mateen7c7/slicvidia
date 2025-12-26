@@ -265,7 +265,7 @@ export default function ServicesPage() {
                   Contact Us Today
                 </button>
               </Link>
-              <Link href="/portfolio">
+              <Link href="/#portfolio">
                 <button className="px-10 py-4 bg-transparent border-2 border-white text-white font-bold rounded-full hover:bg-white/10 transition-all duration-300">
                   View Our Work
                 </button>

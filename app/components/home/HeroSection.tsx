@@ -77,7 +77,7 @@ export default function HeroSection() {
             className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-tight"
           >
             Turn Your Digital Presence Into <br className="hidden md:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 animate-gradient-x">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 via-purple-400 to-pink-400 animate-gradient-x">
               A Growth Engine
             </span>
           </motion.h1>

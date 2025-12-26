@@ -55,6 +55,36 @@ const openPositions = [
 export default function CareersPage() {
   return (
     <main className="min-h-screen pt-32 pb-20 px-6 bg-[#0D1117] text-white relative overflow-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            openPositions.map((pos) => ({
+              "@context": "https://schema.org/",
+              "@type": "JobPosting",
+              title: pos.title,
+              description: `Join Slicvidia as a ${pos.title} in our ${pos.department} department. ${pos.type} position, ${pos.location} remote work.`,
+              datePosted: "2024-12-25",
+              validThrough: "2025-12-31",
+              employmentType: pos.type.toUpperCase().replace("-", "_"),
+              hiringOrganization: {
+                "@type": "Organization",
+                name: "Slicvidia",
+                sameAs: "https://slicvidia.com",
+                logo: "https://slicvidia.com/slicvidialogo.jpeg",
+              },
+              jobLocation: {
+                "@type": "Place",
+                address: {
+                  "@type": "PostalAddress",
+                  addressLocality: "Remote",
+                  addressCountry: "IN",
+                },
+              },
+            }))
+          ),
+        }}
+      />
       {/* Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
         <div className="absolute top-[-10%] left-[-5%] w-[500px] h-[500px] bg-[#3B82F6]/10 rounded-full blur-[120px]" />
@@ -69,7 +99,7 @@ export default function CareersPage() {
           transition={{ duration: 0.6 }}
           className="text-center mb-24"
         >
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-[#3B82F6] to-[#7C3AED] bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-linear-to-r from-[#3B82F6] to-[#7C3AED] bg-clip-text text-transparent">
             Join Our Mission
           </h1>
           <p className="text-xl text-[#A3B3C9] max-w-2xl mx-auto">

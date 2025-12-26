@@ -10,7 +10,7 @@ export default function CTASection() {
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
-        className="max-w-5xl mx-auto relative rounded-[3rem] overflow-hidden bg-gradient-to-r from-blue-700 via-indigo-800 to-purple-900 text-center p-12 md:p-24 border border-white/20 shadow-2xl"
+        className="max-w-5xl mx-auto relative rounded-[3rem] overflow-hidden bg-linear-to-r from-blue-700 via-indigo-800 to-purple-900 text-center p-12 md:p-24 border border-white/20 shadow-2xl"
       >
         {/* Abstract overlay shapes for texture */}
         <div className="absolute inset-0 bg-[url('/noise.png')] opacity-20 mix-blend-overlay pointer-events-none"></div>
