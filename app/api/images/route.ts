@@ -94,6 +94,8 @@ export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const mail = searchParams.get("mail");
 
+  console.log("Get request for image");
+
   // IP
   const ip =
     request.headers.get("x-forwarded-for")?.split(",")[0] ||
