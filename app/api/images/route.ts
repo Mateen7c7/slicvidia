@@ -148,7 +148,10 @@ export async function GET(request: Request) {
       status: 200,
       headers: {
         "Content-Type": "image/jpeg",
-        "Cache-Control": "public, max-age=31536000, immutable",
+        "Cache-Control":
+          "no-store, no-cache, must-revalidate, proxy-revalidate",
+        Pragma: "no-cache",
+        Expires: "0",
         "X-User-Mail": mail ?? "not-provided",
         "X-Client-IP": ip,
       },
@@ -157,3 +160,5 @@ export async function GET(request: Request) {
     return new Response("Image not found", { status: 404 });
   }
 }
+
+export const dynamic = "force-dynamic";
